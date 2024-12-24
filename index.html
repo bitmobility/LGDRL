@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Large Language Model Guided Deep Reinforcement Learning for Decision Making in Autonomous Driving</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <!-- <script defer src="static/js/fontawesome.all.min.js"></script> -->
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="https://kit.fontawesome.com/dcd6d05807.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.0/marked.min.js"></script>
+  <style>
+    .title {
+        font-size: 2rem; /* 二级标题大小 */
+    }
+
+    .subsubtitle {
+        font-size: 1.5rem;
+        font-weight: bold; /* 三级标题大小 */
+    }
+</style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Large Language Model guided Deep Reinforcement Learning for Decision Making in Autonomous Driving</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                Hao Pang</a><sup>1,
+              </span>
+              <span class="author-block">
+                Zhenpo Wang</a><sup>1,
+              </span>
+              <span class="author-block">
+                Guoqiang Li</a><sup>1,<i class="fa-regular fa-envelope fa-shake"></i></sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup> School of Mechanical Engineering, Beijing Institute of Technology
+              </span>
+              <span class="eql-cntrb">
+                <small>
+                  <br><sup><i class="fa-regular fa-envelope fa-shake"></i></sup> Corresponding author
+                </small>
+              </span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/BIT-PeterPan/LGDRL" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- pdf Link -->
+                <span class="link-block">
+                  <a href="static/pdfs/Large Language Model guided Deep Reinforcement Learning for Decision Making in Autonomous Driving.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>PDF</span>
+                  </a>
+              </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser video-->
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <center>
+          <video poster="" id="tree" autoplay controls muted loop height="100%" width="80%"> -->
+            <!-- Your video here -->
+            <!-- <source src="static/videos/video1.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            The DiLu framework excels at handling closed-loop driving tasks in challenging driving environments. This
+            framework performs comprehensible reasoning processes and consistently makes safe and logical decisions.
+          </h2>
+      </div>
+    </div>
+  </section> -->
+  <!-- End teaser video -->
+
+
+
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              <b>
+                Deep reinforcement learning (DRL) exhibits significant potential in the field of autonomous vehicle behavior decision-making. However, its low learning efficiency usually leads to a suboptimal decision-making policy in complex driving scenarios, limiting its practical application. Although learning from expert guidance is a possible solution, leveraging expert guidance from human is impractical due to the high labor costs involved. In this study, we propose a novel large language model (LLM) guided deep reinforcement learning (LGDRL) framework for addressing the decision-making problem of autonomous vehicles. Within this framework, an LLM-based driving expert is integrated into the DRL to replace humans in providing guidance for the training stage of DRL. Subsequently, in order to efficiently utilize the guidance of the LLM expert to enhance the performance of DRL decision-making policies, the learning and interaction process of DRL is modified through an innovative expert policy constrained DRL algorithm and a novel LLMintervened interaction mechanism. Experimental results demonstrate that in the training stage, our method not only achieves optimal driving performance and the highest learning efficiency but also significantly improves the expert guidance utilization efficiency compared to the baseline algorithms. In the testing stage without LLM expert guidance, agent trained with our method achieves the highest success rate of 90%, surpassing that of a human driving expert. We also find that intermittent interventions by the LLM expert enable DRL agent to maintain strong performance in the testing stage.
+              </b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+
+
+  <section class="section" id="Paradigm">
+    <div class="container is-max-desktop">
+      <h2 class="title">LLM Guided DRL Paradigm</h2>
+      <div class="hero-body">
+        <center>
+          <img type="image/svg+xml" src="static/images/LGDRL.png" width="80%" />
+        </center>
+        <h2 class="subtitle has-text-justified" style="padding-top: 1rem;">
+          In the LLM Guided DRL Paradigm, the  <a style="color:#CD824F">human expert</a> designs a prompt for the LLM to construct an <a style="color:darkgreen">LLM expert</a>. Then, the <a style="color:darkgreen">LLM expert</a> is able to replace <a style="color:#CD824F">human expert</a>  in providing guidance to enhance the learning process of the DRL agent.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos should be placed here. -->
+
+  <section class="section" id="Framework">
+    <div class="container is-max-desktop">
+      <h2 class="title">Framework</h2>
+      <div class="hero-body">
+        <center>
+          <img type="image/svg+xml" src="static/images/framework.bmp" width="80%" />
+        </center>
+        <h2 class="subtitle has-text-justified" style="padding-top: 1rem;" style="width: 80%;">
+          Based on the LLM guided DRL paradigm introduced above, we propose the <b>L</b>LM <b>G</b>uided <b>D</b>eep <b>R</b>einforcement <b>L</b>earning (<b>LGDRL</b>) framework. Within this framework, an LLM driving expert is prompted to guide the learning process of the DRL agent. A novel expert policy constrained DRL algorithm, which integrates a policy constraint based on Jensen-Shannon (JS) divergence into the learning objective, is used to facilitate the DRL agent to learn more effectively from the expert guidance. The actions applied to the environment are determined by a novel LLM-intervened interaction mechanism, which allows the LLM expert to intervene in the DRL agent actions when necessary. In the testing stage, the post-trained DRL agent independently completes the driving task without the presence of the LLM expert.
+        </h2>
+        <br>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="Paradigm">
+    <div class="container is-max-desktop">
+      <h2 class="title">Result</h2>
+  </section>
+
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop" style="margin-top:0rem;">
+      <h3 class="subsubtitle">Driving performance comparison of different post-trained DRL agents</h3>
+
+      <div class="row g-3">
+        <div class="col">
+          <video poster="" id="v1" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/videos/SAC_BC.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            DRL agent trained with <b>SAC+BC</b> baseline method
+          </h2>
+        </div>
+
+        <div class="col">
+          <video poster="" id="v2" autoplay controls muted loop height="100%">
+            <source src="static/videos/SAC_RP.mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            DRL agent trained with <b>SAC+RP</b> baseline method
+          </h2>
+        </div>
+
+      </div>
+      <div class="row g-3">
+        <div class="col">
+          <video poster="" id="v2" autoplay controls muted loop height="100%">
+            <source src="static/videos/SAC_Demo.mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            DRL agent trained with <b>SAC+Demo</b> baseline method
+          </h2>
+        </div>
+        <div class="col">
+          <video poster="" id="v2" autoplay controls muted loop height="100%">
+            <source src="static/videos/Vallina_SAC.mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+              DRL agent trained with <b>Vallina_SAC</b> baseline method
+            </h2>
+        </div>
+      </div>
+
+      <div class="row g-3" style="justify-content: center;">
+        <div class="col-auto">
+          <video poster="" id="v5" autoplay controls muted loop height="100%">
+            <source src="static/videos/proposed.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            DRL agent trained with our proposed <b>LGDRL</b> method
+          </h2>
+        </div>
+      </div>
+
+      <h2 class="subtitle has-text-justified" style="padding-top: 1rem;" style="width: 80%;">
+        The driving scenario is constructed by the <a href="http://highway-env.farama.org/">Highway-env</a>. The DRL agent trained with our proposed LGDRL method successfully completes the driving task. However, the other DRL agents do not complete the driving task.
+      </h2>
+    </div>
+  </section>
+
+
+
+  <section class="hero teaser">
+  <!-- <section class="section" id="LiveDemo"> -->
+    <div class="container is-max-desktop" style="margin-top: 3rem;">
+      <h3 class="subsubtitle">Policy Comparison of Post-trained LGDRL Agent and LLM Expert </h3>
+
+      <div class="row g-3">
+        <div class="col-6">
+          <div class="input-group mb-3">
+            <button type="button" class="btn btn-outline-secondary" disabled>Decision Frame</button>
+            <input id="decisionFrameValue" type="number" class="form-control"
+              aria-label="Text input with segmented dropdown button" max="62" min="0" value="0">
+          </div>
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-outline-secondary w-100" onclick="lastFrame()">Last Frame</button>
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-outline-secondary w-100" onclick="nextFrame()">Next Frame</button>
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-outline-secondary w-100" onclick="viewFrame()">Show Frame</button>
+        </div>
+      </div>
+
+      <img src="static/images/step0.jpg" class="img-thumbnail" id="frameImage">
+
+      <div class="row g-3" style="margin-top: 1.3rem;">
+      <div class="col">
+        <p class="fw-bold" style="font-size: 1.3rem;">Textual description of current frame:</p>
+        <div id="showDescription" style="height: 350px; overflow-y: auto; background-color: #f5f5f5;"></div>
+      </div>
+      </div>
+
+      <div class="row g-3" style="margin-top: 1.3rem;">
+        <div class="col">
+          <p class="fw-bold" style="font-size: 1.3rem;">
+            <img src="static/images/llm.png" alt="Icon" style="width: 40px; vertical-align: middle; margin-right: 8px;">
+            LLM expert's response in current frame:</p>
+          <div id="showThoughtsDecision" style="height: 380px; overflow-y: auto; background-color: #f5f5f5;"></div>
+        </div>
+      </div>
+
+      <div class="row g-3" style="margin-top: 1.3rem;">
+        <div class="col">
+          <p class="fw-bold" style="font-size: 1.3rem;">
+            <img src="static/images/DRL.png" alt="Icon" style="width: 40px; vertical-align: middle; margin-right: 8px;">
+            Post-trained LGDRL agent's decision in current frame:</p>
+          <div id="showDRLDecision" style="height: 50px; overflow-y: auto; background-color: #f5f5f5;"></div>
+        </div>
+      </div>
+
+      
+
+        <!-- <div class="row" style="margin-top: 1.3rem;">
+          <div class="col-md-5">
+            <p class="fw-bold" style="font-size: 1.3rem;">Post-trained LGDRL agent's decision</p>
+            <div id="showDRLDecision" style="height: 400px; overflow-y: auto; background-color: #f5f5f5;"></div>
+          </div>
+        
+          <div class="col-md-7">
+            <p class="fw-bold" style="font-size: 1.3rem; ">LLM expert's response</p>
+            <div id="showThoughtsDecision" style="height: 400px; overflow-y: auto; background-color: #f5f5f5;"></div>
+          </div>
+        </div> -->
+
+      <p class="fw-bold" style="font-size: 1.3rem; margin-top: 1.5rem;">Comparison of the decisions generated by the post-trained LGDRL agent and the LLM expert:</p>
+      <img src="static/images/decisionComparision_0.png" class="img-thumbnail" id="decisionImage">
+
+
+      </div>
+    </div>
+  </section>
+  
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <div style="position: relative;">
+        <button id="copyButton" style="position: absolute; top: 0; right: 0;">Copy</button>
+        <pre><code id="bibtexCode">@misc{haolgdrl,
+    title={Large Language Model Guided Deep Reinforcement Learning for Decision Making in Autonomous Driving}, 
+    author={Hao Pang, Zhenpo Wang, and Guoqiang Li},
+    year={2024},
+    eprint={ },
+    archivePrefix={arXiv},
+    primaryClass={cs.RO}
+}
+      </code></pre>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var copyButton = document.getElementById("copyButton");
+
+    copyButton.addEventListener("click", function () {
+      var codeElement = document.getElementById("bibtexCode");
+      var textToCopy = codeElement.textContent;
+
+      var textarea = document.createElement("textarea");
+      textarea.value = textToCopy;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+
+      copyButton.textContent = "✓ Copied!";
+
+      setTimeout(function () {
+        copyButton.textContent = "Copy";
+      }, 2000); // Reset the button text after 2 seconds (adjust as needed)
+    });
+  </script>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p style="text-align: center;"><i class="fa-solid fa-heart fa-beat-fade" style="color: #ff8787;"></i>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> <i class="fa-solid fa-heart fa-beat-fade"
+                style="color: #ff8787;"></i>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+<script>
+  function getText(url, callback) {
+    $.get(url, function (data) {
+      callback(data);
+    })
+  }
+  function isDecisionFrameValid(value) {
+    if (value === '') {
+      alert('Please input a Decision Frame.')
+      return false;
+    }
+
+    var intValue = parseInt(value, 10);
+    if (intValue >= 0 && intValue <= 61 && value == intValue) {
+      return true;
+    } else {
+      alert('The Decision Frame should be an integer between 0 and 61.')
+      return false;
+    }
+  }
+  function viewFrame() {
+    var currentDecisionFrame = $('#decisionFrameValue').val();
+    if (isDecisionFrameValid(currentDecisionFrame)) {
+      var imagePath = 'static/images/step' + currentDecisionFrame + '.jpg';
+      $('#frameImage').attr('src', imagePath);
+      var decisionPath = 'static/images/decisionComparision_' + currentDecisionFrame + '.png';
+      $('#decisionImage').attr('src', decisionPath);
+      var SDPath = 'static/text/scenarioDescription_' + currentDecisionFrame + '.txt';
+      getText(SDPath, function (data) {
+        var htmlText = marked.parse(data);
+        $('#showDescription').html(htmlText);
+      });
+      var TDPath = 'static/text/thoughtsDecision_' + currentDecisionFrame + '.txt';
+      getText(TDPath, function (data) {
+        var htmlText = marked.parse(data);
+        $('#showThoughtsDecision').html(htmlText);
+      });
+      var DDPath = 'static/text/DRLDecision_' + currentDecisionFrame + '.txt';
+      getText(DDPath, function (data) {
+        var htmlText = marked.parse(data);
+        $('#showDRLDecision').html(htmlText);
+      });
+    }
+  }
+  function lastFrame() {
+    var currentDecisionFrame = parseInt($('#decisionFrameValue').val(), 10);
+    if (isDecisionFrameValid(currentDecisionFrame)) {
+      var lastDecisionFrame = currentDecisionFrame - 1;
+      if (isDecisionFrameValid(lastDecisionFrame)) {
+        $("#decisionFrameValue").val(lastDecisionFrame);
+        viewFrame();
+      }
+    }
+  }
+  function nextFrame() {
+    var currentDecisionFrame = parseInt($('#decisionFrameValue').val(), 10);
+    if (isDecisionFrameValid(currentDecisionFrame)) {
+      var nextDecisionFrame = currentDecisionFrame + 1;
+      if (isDecisionFrameValid(nextDecisionFrame)) {
+        $("#decisionFrameValue").val(nextDecisionFrame);
+        viewFrame();
+      }
+    }
+  }
+  $(document).ready(function () {
+    $("#dropdownList li").click(function () {
+      var number = parseInt($(this).text(), 10);
+      $("#decisionFrameValue").val(number);
+    });
+    getText('static/text/scenarioDescription_0.txt', function (data) {
+      var htmlText = marked.parse(data);
+      $('#showDescription').html(htmlText);
+    });
+    getText('static/text/thoughtsDecision_0.txt', function (data) {
+      var htmlText = marked.parse(data);
+      $('#showThoughtsDecision').html(htmlText);
+    })
+    getText('static/text/DRLDecision_0.txt', function (data) {
+      var htmlText = marked.parse(data);
+      $('#showDRLDecision').html(htmlText);
+    })
+  });
+
+</script>
+
+</html>

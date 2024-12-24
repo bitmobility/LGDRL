@@ -1,0 +1,17 @@
+****Lane State:****
+
+You are driving on a road with 4 lanes, and you are currently driving in the third lane from the left. Your speed is `10.63 m/s`. Your lane position is `733.77 m`. Target is in the rightmost lane, `266.0 m` ahead.
+
+****SV State:****
+
+On your driving lane:
+- Vehicle `784` is is ahead of you. The distance is `22.49 m`. It's speed is `17.53 m/s`. It's acceleration is `0.15 m/s^2.`
+- Vehicle `208` is is behind of you. The distance is `31.36 m`. It's speed is `13.63 m/s`. It's acceleration is `-2.00 m/s^2.`
+
+On your left lane:
+- Vehicle `648` is is behind of you. The distance is `33.10 m`. It's speed is `10.94 m/s`. It's acceleration is `2.00 m/s^2.`
+
+On your right lane:
+- Vehicle `800` is is ahead of you. The distance is `51.81 m`. It's' speed is `18.58 m/s`. It's acceleration is `0.39 m/s^2.`
+- Vehicle `992` is is behind of you. The distance is `0.72 m`. It's' speed is `17.11 m/s`. It's acceleration is `0.58 m/s^2.`
+

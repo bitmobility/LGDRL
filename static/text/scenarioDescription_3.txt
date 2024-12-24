@@ -1,0 +1,15 @@
+****Lane State:****
+
+You are driving on a road with 4 lanes, and you are currently driving in the leftmost lane. Your speed is `23.37 m/s`.Your lane position is `533.15 m`. Target is in the rightmost lane, `467.0 m` ahead.
+
+****SV State:****
+
+On your driving lane:
+- Vehicle `368` is is ahead of you. The distance is `33.19 m`. It's speed is `15.27 m/s`. It's acceleration is `-2.00 m/s^2.`
+
+There is no lane on your left.
+
+On your right lane:
+- Vehicle `552` is is ahead of you. The distance is `38.12 m`. It's' speed is `21.82 m/s`. It's acceleration is `-0.25 m/s^2.`
+- Vehicle `600` is is behind of you. The distance is `7.20 m`. It's' speed is `16.50 m/s`. It's acceleration is `-2.00 m/s^2.`
+
