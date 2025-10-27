@@ -191,66 +191,84 @@
   </section>
 
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop" style="margin-top:0rem;">
-      <h3 class="subsubtitle">Driving performance comparison of different post-trained DRL agents</h3>
+<section class="hero teaser">
+  <div class="container is-max-desktop" style="margin-top:0rem;">
+    <h3 class="subsubtitle">
+      Driving performance comparison of different post-trained DRL agents
+    </h3>
 
-      <div class="row g-3">
-        <div class="col">
-          <video poster="" id="v1" autoplay controls muted loop height="100%">
-            <!-- Your video here -->
-            <source src="static/videos/SAC_BC.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            DRL agent trained with <b>SAC+BC</b> baseline method
-          </h2>
-        </div>
-
-        <div class="col">
-          <video poster="" id="v2" autoplay controls muted loop height="100%">
-            <source src="static/videos/SAC_RP.mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            DRL agent trained with <b>SAC+RP</b> baseline method
-          </h2>
-        </div>
-
-      </div>
-      <div class="row g-3">
-        <div class="col">
-          <video poster="" id="v2" autoplay controls muted loop height="100%">
-            <source src="static/videos/SAC_Demo.mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            DRL agent trained with <b>SAC+Demo</b> baseline method
-          </h2>
-        </div>
-        <div class="col">
-          <video poster="" id="v2" autoplay controls muted loop height="100%">
-            <source src="static/videos/Vallina_SAC.mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-              DRL agent trained with <b>Vallina_SAC</b> baseline method
-            </h2>
-        </div>
+    <!-- 第一行 -->
+    <div class="row g-3">
+      <div class="col-md-6 col-sm-12">
+        <video id="v1" autoplay controls muted loop style="width:100%; height:auto;">
+          <source src="static/videos/SAC_BC.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          DRL agent trained with <b>SAC+BC</b> baseline method
+        </h2>
       </div>
 
-      <div class="row g-3" style="justify-content: center;">
-        <div class="col-auto">
-          <video poster="" id="v5" autoplay controls muted loop height="100%">
-            <source src="static/videos/proposed.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            DRL agent trained with our proposed <b>LGDRL</b> method
-          </h2>
-        </div>
+      <div class="col-md-6 col-sm-12">
+        <video id="v2" autoplay controls muted loop style="width:100%; height:auto;">
+          <source src="static/videos/SAC_RP.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          DRL agent trained with <b>SAC+RP</b> baseline method
+        </h2>
       </div>
-
-      <h2 class="subtitle has-text-justified" style="padding-top: 1rem;" style="width: 80%;">
-        The driving scenario is constructed by the <a href="http://highway-env.farama.org/">Highway-env</a>. The DRL agent trained with our proposed LGDRL method successfully completes the driving task. However, the other DRL agents do not complete the driving task.
-      </h2>
     </div>
-  </section>
+
+    <!-- 第二行 -->
+    <div class="row g-3">
+      <div class="col-md-6 col-sm-12">
+        <video id="v3" autoplay controls muted loop style="width:100%; height:auto;">
+          <source src="static/videos/SAC_Demo.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          DRL agent trained with <b>SAC+Demo</b> baseline method
+        </h2>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <video id="v4" autoplay controls muted loop style="width:100%; height:auto;">
+          <source src="static/videos/Vallina_SAC.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          DRL agent trained with <b>Vallina_SAC</b> baseline method
+        </h2>
+      </div>
+    </div>
+
+    <!-- 第三行 -->
+    <div class="row g-3">
+      <div class="col-md-6 col-sm-12">
+        <video id="v5" autoplay controls muted loop style="width:100%; height:auto;">
+          <source src="static/videos/hrl.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          DRL agent trained with <b>HRL</b> baseline method
+        </h2>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <video id="v6" autoplay controls muted loop style="width:100%; height:auto;">
+          <source src="static/videos/proposed.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          DRL agent trained with <b>LGDRL</b> baseline method
+        </h2>
+      </div>
+    </div>
+
+    <!-- 描述部分 -->
+    <h2 class="subtitle has-text-justified" style="padding-top: 1rem; width: 80%; margin: 0 auto;">
+      The driving scenario is constructed by the
+      <a href="http://highway-env.farama.org/">Highway-env</a>.
+      The DRL agent trained with our proposed LGDRL method successfully completes the driving task.
+      However, the other DRL agents do not complete the driving task.
+    </h2>
+  </div>
+</section>
 
 
 
